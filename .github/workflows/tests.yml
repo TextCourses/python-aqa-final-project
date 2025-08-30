@@ -22,11 +22,11 @@ jobs:
       - name: Установка системных зависимостей
         run: |
           sudo apt update -y
-          sudo apt install build-essential libpq-dev postgresql
+          sudo apt install build-essential libpq-dev postgresql-16
 
       - name: Настройка БД
         run: |
-          sudo pg_ctlcluster 12 main start
+          sudo pg_ctlcluster 16 main start
           sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres'"
 
       - name: Установка python зависимостей
