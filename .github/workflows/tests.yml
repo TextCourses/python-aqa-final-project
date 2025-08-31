@@ -22,7 +22,7 @@ jobs:
       - name: Установка системных зависимостей
         run: |
           sudo apt update -y
-          sudo apt install build-essential libpq-dev postgresql-16
+          sudo apt install build-essential libpq-dev postgresql-16 screen
 
       - name: Настройка БД
         run: |
@@ -38,4 +38,4 @@ jobs:
       - name: Старт приложения
         run: |
           python app/manage.py migrate
-          python app/manage.py runserver 8080
+          screen -d -m python app/manage.py runserver 8080
